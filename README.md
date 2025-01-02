@@ -12,9 +12,13 @@ Configurations for:
 
 ##  Installation
 
-Before install the dotfiles it self you must run some commands:
+Before anything else, setup everything with:
 
 ```sh
+# Tmux
+# Allow to have save the session of windows
+brew install tmux
+
 # ZSH. 
 # A better shell (https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 brew install zsh
@@ -36,6 +40,7 @@ brew install lazygit
 brew install lazydocker
 
 # FZF
+# Fuzzy finder for files. Integrates well with neovim telescope.
 brew install fzf
 ```
 
