@@ -1,33 +1,34 @@
-#!/bin/bash
-
-DOTFILES_DIR="$HOME/.dotfiles"
-DOTFILES_DIR=$(realpath "$DOTFILES_DIR")
-echo "$DOTFILES_DIR/nvim"
-
 # Tmux
-echo "Removing tmux..."
-rm -Rf "$HOME/.tmux"
-rm -Rf "$HOME/.tmux.conf"
-rm -Rf "$HOME/.tmux.conf.local"
+# Allow to have save the session of windows
+echo "Installing tmux"
+brew install tmux
 
-# Install .tmux
-echo "Setting up .tmux"
-cd $HOME
-git clone --single-branch https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
+# ZSH. 
+# A better shell (https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+echo "Installing zsh"
+brew install zsh
 
-echo "Copying custom conf"
-echo "source-file $DOTFILES_DIR/tmux/.tmux.conf.local" >> "$HOME/.tmux.conf.local"
+# on-my-zsh.
+# To have plugins
+echo "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-# Zsh
-echo "Removing zshrc..."
-rm -Rf "$HOME/.zshrc"
-ln -sf "$DOTFILES_DIR/zsh/.zshrc" "$HOME/.zshrc"
+# Zoxide 
+# It's a better CD
+echo "Installing zoxide"
+brew install zoxide
 
-# Neovim
-echo "Removing nvim..."
-rm -Rf "$HOME/.config/nvim"
-ln -sfn "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
+# Lazygit
+# Git for terminal
+echo "Installing lazygit"
+brew install lazygit
 
-echo "Setup done"
+# Lazydocker
+# Docker for terminal
+echo "Installing lazydocker"
+brew install lazydocker
+
+# FZF
+# Fuzzy finder for files. Integrates well with neovim telescope.
+echo "Installing fzf"
+brew install fzf

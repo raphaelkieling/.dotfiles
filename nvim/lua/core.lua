@@ -25,8 +25,9 @@ o.encoding = "utf-8"
 o.updatetime = 100
 
 -- Make the deletion better
-api.nvim_set_keymap('n', 'd', '"_d', { noremap = true, silent = true })
-api.nvim_set_keymap('v', 'd', '"_d', { noremap = true, silent = true })
+-- Will try another time. Horrible
+-- api.nvim_set_keymap('n', 'd', '"_d', { noremap = true, silent = true })
+-- api.nvim_set_keymap('v', 'd', '"_d', { noremap = true, silent = true })
 
 -- Accept uppercase file op
 api.nvim_create_user_command("WQ", "wq", {})

@@ -7,44 +7,23 @@ This project is a collection of my personal dotfiles. It is a work in progress a
 Configurations for:
 - Neovim
 - Zsh
-- Ghostyy
+- (Ghostyy)[https://ghostty.org/]
 - Tmux 
 
-##  Installation
+## Prerequisites
 
-Before anything else, setup everything with:
-
-```sh
-# Tmux
-# Allow to have save the session of windows
-brew install tmux
-
-# ZSH. 
-# A better shell (https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
-brew install zsh
-
-# on-my-zsh.
-# To have plugins
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Zoxide 
-# It's a better CD
-brew install zoxide
-
-# Lazygit
-# Git for terminal
-brew install lazygit
-
-# Lazydocker
-# Docker for terminal
-brew install lazydocker
-
-# FZF
-# Fuzzy finder for files. Integrates well with neovim telescope.
-brew install fzf
-```
+Install all the necessary tools
 
 ```sh
 chmod +x ~/.dotfiles/install.sh
+chmod +x ~/.dotfiles/setup.s
+
 ~/.dotfiles/install.sh
 ```
+
+##  Installation
+
+```sh
+~/.dotfiles/setup.sh
+```
+
