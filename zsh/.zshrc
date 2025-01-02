@@ -23,9 +23,6 @@ else
   export EDITOR='nvim'
 fi
 
-# Tmux
-if [ "$TMUX" = "" ]; then tmux; fi
-
 # Added zoxide. A better cd tool
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -34,3 +31,6 @@ DOTFILES="$HOME/.dotfiles"
 # Path stuff
 export PATH=/usr/local/bin:$PATH
 export PATH=$DOTFILES/bin:$PATH
+
+# Alias
+alias n="nvim"
