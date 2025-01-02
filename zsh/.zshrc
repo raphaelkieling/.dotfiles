@@ -25,14 +25,6 @@ else
   export EDITOR='nvim'
 fi
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-# Load the default Node.js version silently
-nvm use default --silent
-
 # Added zoxide. A better cd tool
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -42,11 +34,21 @@ DOTFILES="$HOME/.dotfiles"
 export PATH=/usr/local/bin:$PATH
 export PATH=$DOTFILES/bin:$PATH
 
-# Alias
-alias n="nvim"
-
 # TMUX
 if [ -z "$TMUX" ]
 then
     tmux attach -t TMUX || tmux new -s TMUX
 fi
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Load the default Node.js version silently
+nvm use 20 --silent
+
+# Alias
+alias n="nvim"
+alias nc="nvim $HOME/.dotfiles"
+

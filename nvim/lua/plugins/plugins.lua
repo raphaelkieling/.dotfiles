@@ -100,16 +100,35 @@ return {
     {
         "nvim-telescope/telescope.nvim",
         tag = "0.1.8",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = {
-            defaults = {
-                layout_strategy = "horizontal",
-                layout_config = { prompt_position = "top" },
-                sorting_strategy = "ascending",
-                winblend = 0,
-            },
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         },
         config = function()
+            local telescope = require("telescope")
+
+            telescope.setup({
+                pickers = {
+                    live_grep = {
+                        file_ignore_patterns = { "node_modules", ".git", ".venv" },
+                        additional_args = function(_)
+                            return { "--hidden" }
+                        end,
+                    },
+                    find_files = {
+                        file_ignore_patterns = { "node_modules", ".git", ".venv" },
+                        hidden = true,
+                    },
+                },
+                extensions = {
+                    "fzf",
+                },
+            })
+
+            -- Run: cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim && make && cd -
+            -- If you have any issues with the fzf native
+            telescope.load_extension("fzf")
+
             local builtin = require("telescope.builtin")
 
             vim.keymap.set("n", "<leader><leader>", builtin.find_files, { desc = "Telescope find files" })
@@ -169,6 +188,26 @@ return {
         },
         keys = {
             { "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+        },
+    },
+    {
+        "lewis6991/gitsigns.nvim",
+        opts = {
+            signs = {
+                add = { text = "▎" },
+                change = { text = "▎" },
+                delete = { text = "" },
+                topdelete = { text = "" },
+                changedelete = { text = "▎" },
+                untracked = { text = "▎" },
+            },
+            signs_staged = {
+                add = { text = "▎" },
+                change = { text = "▎" },
+                delete = { text = "" },
+                topdelete = { text = "" },
+                changedelete = { text = "▎" },
+            },
         },
     },
     -- Manage the surrounds (parentheses, brackets, etc)
