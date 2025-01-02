@@ -32,3 +32,6 @@ brew install lazydocker
 # Fuzzy finder for files. Integrates well with neovim telescope.
 echo "Installing fzf"
 brew install fzf
+
+# NVM
+brew install nvm

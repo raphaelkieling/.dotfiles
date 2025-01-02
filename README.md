@@ -15,9 +15,6 @@ Configurations for:
 Install all the necessary tools
 
 ```sh
-chmod +x ~/.dotfiles/install.sh
-chmod +x ~/.dotfiles/setup.s
-
 ~/.dotfiles/install.sh
 ```
 
