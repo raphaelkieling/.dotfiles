@@ -7,7 +7,7 @@ This project is a collection of my personal dotfiles. It is a work in progress a
 Configurations for:
 - Neovim
 - Zsh
-- (Ghostyy)[https://ghostty.org/]
+-[Ghostyy](https://ghostty.org/)
 - Tmux 
 
 ## Prerequisites
