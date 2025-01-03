@@ -28,6 +28,13 @@ else
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# Npm zsh auto complete
+if [ -d "$HOME/.oh-my-zsh/custom/plugins/zsh-npm-scripts-autocomplete" ]; then
+  echo "zsh-npm-scripts-autocomplete already installed"
+else
+  git clone git@github.com:grigorii-zander/zsh-npm-scripts-autocomplete.git ~/.oh-my-zsh/custom/plugins/zsh-npm-scripts-autocomplete
+fi
+
 # Zoxide 
 # It's a better CD
 brew install zoxide

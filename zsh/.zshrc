@@ -4,6 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 plugins=(git)
+plugins+=(zsh-npm-scripts-autocomplete)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -53,7 +54,7 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Load the default Node.js version silently
-nvm use 20 --silent
+# nvm use 20 --silent
 
 # Alias
 alias n="nvim"
