@@ -24,6 +24,7 @@ return {
         dependencies = "rafamadriz/friendly-snippets",
         version = "*",
         opts = {
+            signature = { enabled = true },
             keymap = {
                 preset = "default",
                 ["<C-r>"] = { "accept" },

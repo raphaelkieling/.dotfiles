@@ -23,6 +23,6 @@ stow neovim -t $HOME
 
 # Ghostyy
 echo "Linking ghostyy..."
-stow ghostyy -t $HOME
+stow ghostty -t $HOME
 
 echo "Setup done"
