@@ -19,6 +19,27 @@ function Handler_on_attach(_, bufnr)
 end
 
 return {
+    {
+        "saghen/blink.cmp",
+        dependencies = "rafamadriz/friendly-snippets",
+        version = "*",
+        opts = {
+            keymap = {
+                preset = "default",
+                ["<C-r>"] = { "accept" },
+                ["<Up>"] = { "select_prev", "fallback" },
+                ["<Down>"] = { "select_next", "fallback" },
+            },
+            appearance = {
+                use_nvim_cmp_as_default = true,
+                nerd_font_variant = "Nerd Font",
+            },
+            sources = {
+                default = { "lsp", "path", "snippets", "buffer" },
+            },
+        },
+        opts_extend = { "sources.default" },
+    },
     -- Install formatters and lsp stuff
     {
         "neovim/nvim-lspconfig",
@@ -28,54 +49,23 @@ return {
         },
         config = function()
             -- Config from: https://github.com/williamboman/mason-lspconfig.nvim
+            -- Responsible for download and install LSP stuff
             require("mason").setup()
-
             require("mason-lspconfig").setup({
                 ensure_installed = Languages,
                 automatic_installation = true,
             })
 
+            -- Responsible for autocomplete
+            local capabilities = require("blink.cmp").get_lsp_capabilities()
+            local lspconfig = require("lspconfig")
+
             for _, lang in ipairs(Languages) do
-                require("lspconfig")[lang].setup({
+                lspconfig[lang].setup({
+                    capabilities = capabilities,
                     on_attach = Handler_on_attach,
                 })
             end
-        end,
-    },
-    {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-cmdline",
-        },
-        config = function()
-            local cmp = require("cmp")
-            cmp.setup({
-                completion = {
-                    autocomplete = { cmp.TriggerEvent.TextChanged },
-                },
-                mapping = cmp.mapping.preset.insert({
-                    ["<C-r>"] = cmp.mapping.confirm({ select = true }),
-                }),
-                sources = {
-                    { name = "nvim_lsp" },
-                    { name = "buffer" },
-                    { name = "cmdline" },
-                },
-            })
-
-            cmp.setup.cmdline(":", {
-                sources = {
-                    { name = "cmdline" }, -- Autocomplete for command ':'
-                    { name = "path" }, -- Complete for current path
-                },
-            })
-
-            local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            require("lspconfig").util.default_config =
-                vim.tbl_deep_extend("force", require("lspconfig").util.default_config, {
-                    capabilities = capabilities,
-                })
         end,
     },
     {
