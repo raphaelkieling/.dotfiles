@@ -1,21 +1,15 @@
-#
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-ZSH_TMUX_AUTOSTART=true
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+# Plugins
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # User configuration ------------------------------------
 
@@ -25,19 +19,32 @@ else
   export EDITOR='nvim'
 fi
 
+# Path stuff
+export PATH=/usr/local/bin:$PATH
+export PATH=$DOTFILES/bin:$PATH
+
 # Added zoxide. A better cd tool
 eval "$(zoxide init --cmd cd zsh)"
 
 DOTFILES="$HOME/.dotfiles"
 
-# Path stuff
-export PATH=/usr/local/bin:$PATH
-export PATH=$DOTFILES/bin:$PATH
+# Add bat as the default `cat` replacement
+if command -v batcat >/dev/null 2>&1; then
+  alias rcat="$(which cat)"
+  alias cat="$(which batcat)"
+  export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+  export MANROFFOPT="-c"
+elif command -v bat >/dev/null 2>&1; then
+  alias rcat="$(which cat)"
+  alias cat="$(which bat)"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export MANROFFOPT="-c"
+fi
 
 # TMUX
 if [ -z "$TMUX" ]
 then
-    tmux attach -t TMUX || tmux new -s TMUX
+    tmux attach -t TMUX || tmux new -s TMUX -c "$PWD"
 fi
 
 # NVM

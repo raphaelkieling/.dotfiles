@@ -4,10 +4,13 @@
 set -g history-limit 10000
 
 # start with mouse mode enabled
-set -g mouse off
+set -g mouse on
 
 # move status line to top
 set -g status-position top
+
+# create window for same path
+tmux_conf_new_pane_retain_current_path=true
 
 
 # NEOVIM integration ---------------------------------------

@@ -51,12 +51,13 @@ return {
         end,
     },
     -- Show shortcuts
-    {
-        "folke/which-key.nvim",
-        config = function()
-            require("which-key").setup({})
-        end,
-    },
+    -- Disabled for now. Trying to avoid
+    -- {
+    --     "folke/which-key.nvim",
+    --     config = function()
+    --         require("which-key").setup({})
+    --     end,
+    -- },
     -- Treefile
     {
         "nvim-tree/nvim-tree.lua",
@@ -87,8 +88,6 @@ return {
             })
 
             vim.api.nvim_set_keymap("n", "<leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
-            -- Probably deprecated. Since i'm using the update_focused_file.
-            -- vim.api.nvim_set_keymap("n", "<leader>fe", ":NvimTreeFindFile<CR>", { noremap = true, silent = true })
         end,
     },
     -- Show errors on lines
@@ -214,12 +213,10 @@ return {
     -- Manage the surrounds (parentheses, brackets, etc)
     {
         "kylechui/nvim-surround",
-        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        version = "*",
         event = "VeryLazy",
         config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
+            require("nvim-surround").setup({})
         end,
     },
     -- Autoclose
