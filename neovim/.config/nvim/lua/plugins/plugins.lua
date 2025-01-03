@@ -67,12 +67,11 @@ return {
         config = function()
             require("nvim-tree").setup({
                 diagnostics = {
-                    enable = true,
+                    enable = false,
                     show_on_dirs = false,
                     icons = {
                         hint = "",
                         info = "",
-                        warning = "",
                         error = "",
                     },
                 },
@@ -135,12 +134,6 @@ return {
             vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
             vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
         end,
-    },
-    -- Bottom bar
-    {
-        "nvim-lualine/lualine.nvim",
-        event = "VeryLazy",
-        opts = function() end,
     },
     -- Treesitter. Add color highlight
     {
