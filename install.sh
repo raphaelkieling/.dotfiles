@@ -15,6 +15,13 @@ brew install stow
 # Allow to have save the session of windows
 brew install tmux
 
+# use tmux TPM (plugin manager)
+if [ -d "$HOME/.tmux/plugins/tpm" ]; then
+  echo "TPM already installed"
+else
+	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 # ZSH. 
 # A better shell (https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting

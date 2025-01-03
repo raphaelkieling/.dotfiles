@@ -10,15 +10,8 @@ rm -Rf "$HOME/.tmux.conf"
 rm -Rf "$HOME/.tmux.conf.local"
 
 # Install .tmux
-echo "Setting up .tmux"
-cd $HOME
-git clone --single-branch https://github.com/gpakosz/.tmux.git
-ln -s -f .tmux/.tmux.conf
-cp .tmux/.tmux.conf.local .
-cd $DOTFILES_DIR
-
-echo "Copying custom conf"
-echo "source-file $DOTFILES_DIR/tmux/.tmux.conf.local" >> "$HOME/.tmux.conf.local"
+echo "Linking tmux..."
+stow tmux -t $HOME
 
 # Zsh
 echo "Linking zshrc..."
