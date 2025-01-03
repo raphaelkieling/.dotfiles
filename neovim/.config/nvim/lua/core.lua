@@ -29,6 +29,9 @@ o.updatetime = 100
 -- api.nvim_set_keymap('n', 'd', '"_d', { noremap = true, silent = true })
 -- api.nvim_set_keymap('v', 'd', '"_d', { noremap = true, silent = true })
 
+-- To clear the highligh (nohl)
+api.nvim_set_keymap('n', '<leader>hc', ':nohl<CR>', { noremap = true, silent = true })
+
 -- Accept uppercase file op
 api.nvim_create_user_command("WQ", "wq", {})
 api.nvim_create_user_command("W", "w", {})
