@@ -58,4 +58,6 @@ nvm use 20 --silent
 # Alias
 alias n="nvim"
 alias nc="nvim $HOME/.dotfiles"
+alias lg="lazygit"
+alias ld="lazydocker"
 
