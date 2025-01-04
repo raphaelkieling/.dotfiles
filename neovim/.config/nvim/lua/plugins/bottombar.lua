@@ -5,7 +5,6 @@ return {
         event = "VeryLazy",
         opts = {
             options = {
-                theme = "dracula",
                 disabled_filetypes = {
                     statusline = { "NvimTree" },
                     winbar = {},

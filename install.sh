@@ -1,3 +1,6 @@
+#TLDR. Better man
+brew install tldr
+
 # Font
 brew install --cask font-fira-code-nerd-font
 

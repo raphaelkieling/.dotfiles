@@ -27,6 +27,9 @@ export PATH=$DOTFILES/bin:$PATH
 # Added zoxide. A better cd tool
 eval "$(zoxide init --cmd cd zsh)"
 
+# Add eza. Better ls
+alias ls='eza -al --icons --group-directories-first --color=auto --git'
+
 DOTFILES="$HOME/.dotfiles"
 
 # Add bat as the default `cat` replacement
@@ -62,3 +65,6 @@ alias nc="nvim $HOME/.dotfiles"
 alias lg="lazygit"
 alias ld="lazydocker"
 
+
+# Created by `pipx` on 2025-01-03 21:01:34
+export PATH="$PATH:/Users/kieling/.local/bin"

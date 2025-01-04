@@ -4,12 +4,6 @@ DOTFILES_DIR="$HOME/.dotfiles"
 echo "$DOTFILES_DIR/nvim"
 
 # Tmux
-echo "Removing tmux..."
-rm -Rf "$HOME/.tmux"
-rm -Rf "$HOME/.tmux.conf"
-rm -Rf "$HOME/.tmux.conf.local"
-
-# Install .tmux
 echo "Linking tmux..."
 stow tmux -t $HOME
 
