@@ -1,5 +1,9 @@
-#TLDR. Better man
-brew install tldr
+# Slides.
+# Allow to run md files as slides
+brew install slides
+
+# TLDR. Better man
+brew install tlrc
 
 # Font
 brew install --cask font-fira-code-nerd-font

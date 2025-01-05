@@ -65,6 +65,10 @@ alias nc="nvim $HOME/.dotfiles"
 alias lg="lazygit"
 alias ld="lazydocker"
 
+# Cheat.sh
+cheatsh() {
+    curl cheat.sh/"$1"
+}
 
 # Created by `pipx` on 2025-01-03 21:01:34
 export PATH="$PATH:/Users/kieling/.local/bin"
