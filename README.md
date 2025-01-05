@@ -1,4 +1,4 @@
-# Kieling Dotfiles
+# Kieling Dotfiles.
 
 > Only UNIX-like systems are supported.
 

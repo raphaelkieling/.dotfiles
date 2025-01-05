@@ -1,3 +1,18 @@
+# Entr
+# Entr is a utility for running arbitrary commands when files change.
+brew install entr
+
+# Btop
+# Better top
+brew install btop
+
+# Atuin.
+# Better history
+brew install atuin
+
+# Nvim
+brew install nvim
+
 # Slides.
 # Allow to run md files as slides
 brew install slides

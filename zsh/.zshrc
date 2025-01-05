@@ -59,6 +59,9 @@ export NVM_DIR="$HOME/.nvm"
 # Load the default Node.js version silently
 # nvm use 20 --silent
 
+# Theme for bat
+export BAT_THEME="Dracula"
+
 # Alias
 alias n="nvim"
 alias nc="nvim $HOME/.dotfiles"
@@ -72,3 +75,6 @@ cheatsh() {
 
 # Created by `pipx` on 2025-01-03 21:01:34
 export PATH="$PATH:/Users/kieling/.local/bin"
+
+# Added Atuin. Better history
+eval "$(atuin init zsh)"
