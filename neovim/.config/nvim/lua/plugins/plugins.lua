@@ -1,4 +1,10 @@
 return {
+    -- Markdown Preview
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+        opts = {},
+    },
     -- TMUX Integration
     {
         "christoomey/vim-tmux-navigator",

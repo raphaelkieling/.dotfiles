@@ -1,3 +1,7 @@
+# Fastfetch
+# See the system information in a better way
+brew install fastfetch
+
 # Entr
 # Entr is a utility for running arbitrary commands when files change.
 brew install entr

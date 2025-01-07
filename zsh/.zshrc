@@ -73,6 +73,11 @@ cheatsh() {
     curl cheat.sh/"$1"
 }
 
+# Docker stop
+dockerstop() {
+	docker stop $(docker ps -a -q)
+}
+
 # Created by `pipx` on 2025-01-03 21:01:34
 export PATH="$PATH:/Users/kieling/.local/bin"
 
