@@ -2,7 +2,7 @@ return {
     -- Markdown Preview
     {
         "MeanderingProgrammer/render-markdown.nvim",
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
         opts = {},
     },
     -- TMUX Integration
@@ -172,21 +172,13 @@ return {
     },
     -- Git
     {
-        "kdheepak/lazygit.nvim",
-        lazy = true,
-        cmd = {
-            "LazyGit",
-            "LazyGitConfig",
-            "LazyGitCurrentFile",
-            "LazyGitFilter",
-            "LazyGitFilterCurrentFile",
-        },
+        "NeogitOrg/neogit",
         dependencies = {
             "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim",
         },
-        keys = {
-            { "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-        },
+        config = true,
     },
     {
         "lewis6991/gitsigns.nvim",
