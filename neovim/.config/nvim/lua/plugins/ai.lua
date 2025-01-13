@@ -1,13 +1,39 @@
 return {
+    -- https://github.com/jellydn/lazy-nvim-ide/blob/main/lua/plugins/extras/copilot-chat-v2.lua
     {
-        "github/copilot.vim",
-        config = function()
-            -- Disable Copilot for tab completion
-            vim.g.copilot_no_tab_map = false
-
-            -- Setup keybindings
-            -- For cases where i do not want to use tab
-            vim.api.nvim_set_keymap("i", "<C-S-r>", "copilot#Accept()", { expr = true, noremap = true })
-        end,
+        "CopilotC-Nvim/CopilotChat.nvim",
+        dependencies = {
+            { "github/copilot.vim" },
+            { "nvim-lua/plenary.nvim", branch = "master" },
+        },
+        opts = {
+            mappings = {
+                complete = {
+                    detail = "Use @<Tab> or /<Tab> for options.",
+                    insert = "<Tab>",
+                },
+                submit_prompt = {
+                    normal = "<CR>",
+                    insert = "<C-CR>",
+                },
+                accept_diff = {
+                    normal = "<C-y>",
+                    insert = "<C-y>",
+                },
+            },
+        },
+        keys = {
+            {
+                "<leader>ci",
+                function()
+                    local input = vim.fn.input("Ask Copilot: ")
+                    if input ~= "" then
+                        vim.cmd("CopilotChat " .. input)
+                    end
+                end,
+                desc = "CopilotChat - Ask input",
+            },
+            { "<leader>ct", "<cmd>CopilotChatToggle<cr>", desc = "CopilotChat - Toggle" },
+        },
     },
 }
