@@ -22,6 +22,16 @@ o.encoding = "utf-8"
 -- Make it a bit faster
 o.updatetime = 100
 
+-- Fold
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+opt.foldcolumn = "0"
+opt.foldtext = ""
+opt.foldlevel = 99
+opt.foldlevelstart = 1
+opt.foldnestmax = 4
+opt.foldenable = false
+
 -- Make the deletion better
 -- Will try another time. Horrible
 -- api.nvim_set_keymap('n', 'd', '"_d', { noremap = true, silent = true })

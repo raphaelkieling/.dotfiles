@@ -2,6 +2,7 @@ return {
     -- https://github.com/jellydn/lazy-nvim-ide/blob/main/lua/plugins/extras/copilot-chat-v2.lua
     {
         "CopilotC-Nvim/CopilotChat.nvim",
+        lazy = false,
         dependencies = {
             { "github/copilot.vim" },
             { "nvim-lua/plenary.nvim", branch = "master" },

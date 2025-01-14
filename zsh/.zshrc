@@ -46,10 +46,10 @@ elif command -v bat >/dev/null 2>&1; then
 fi
 
 # TMUX
-if [ -z "$TMUX" ]
-then
-    tmux attach -t TMUX || tmux new -s TMUX -c "$PWD"
-fi
+# if [ -z "$TMUX" ]
+# then
+#     tmux attach -t TMUX || tmux new -s TMUX -c "$PWD"
+# fi
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
