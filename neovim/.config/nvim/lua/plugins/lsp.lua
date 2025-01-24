@@ -1,4 +1,4 @@
-Languages = { "lua_ls", "rust_analyzer", "gopls", "ts_ls", "yamlls", "jsonls" }
+Languages = { "lua_ls", "rust_analyzer", "gopls", "ts_ls", "yamlls", "jsonls", "pyright" }
 
 -- On attach to the LSP, setup the keybindings
 function Handler_on_attach(_, bufnr)

@@ -10,10 +10,6 @@ brew install entr
 # Better top
 brew install btop
 
-# Atuin.
-# Better history
-brew install atuin
-
 # Nvim
 brew install nvim
 

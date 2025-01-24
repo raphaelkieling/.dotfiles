@@ -81,5 +81,22 @@ dockerstop() {
 # Created by `pipx` on 2025-01-03 21:01:34
 export PATH="$PATH:/Users/kieling/.local/bin"
 
-# Added Atuin. Better history
-eval "$(atuin init zsh)"
+# bun completions
+[ -s "/Users/kieling/.bun/_bun" ] && source "/Users/kieling/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# FZF
+bindkey '^R' fzf-history-widget
+
+fzf-history-widget() {
+  local selected=$(history | fzf --tac --preview='echo {}' --preview-window=up:1)
+  if [[ -n $selected ]]; then
+    BUFFER=$(echo $selected | sed 's/^[ ]*[0-9]*[ ]*//')
+    CURSOR=$#BUFFER
+  fi
+  zle redisplay
+}
+zle -N fzf-history-widget
